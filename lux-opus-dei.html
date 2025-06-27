@@ -1,0 +1,986 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>LIGHTHOUSE: Forging Foundational Intelligence Architectures</title>
+    <meta name="description" content="LIGHTHOUSE, a Coreweaver Labs design, forges foundational intelligence architectures for seamless integration and expansive connectivity across complex systems.">
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><path d='M50 0 L65 20 L50 30 L35 20 Z' fill='%23FFC107'/><circle cx='50' cy='50' r='10' fill='%23FF9800'/><rect x='45' y='60' width='10' height='30' fill='%234A6073'/></svg>">
+
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <style>
+        /* Define Lighthouse-inspired colors */
+        :root {
+            --lighthouse-deep-blue: #1A2E40; /* Dark, stormy sea/night sky */
+            --lighthouse-steel-gray: #4A6073; /* Metal/rock of lighthouse */
+            --lighthouse-light-grey: #CBD5E1; /* Concrete/light color of lighthouse structure */
+            --lighthouse-amber: #FFC107; /* Warm light, beacon glow */
+            --lighthouse-orange: #FF9800; /* Stronger light/warning */
+            --lighthouse-light-sky: #87CEEB; /* Lighter blue for accents */
+            --text-color: #E0E6ED; /* General text color */
+        }
+
+        /* Custom CSS for subtle overrides and specific effects */
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: var(--lighthouse-deep-blue);
+            color: var(--text-color);
+            overflow-x: hidden; /* Prevent horizontal scroll on small devices */
+        }
+
+        /* Subtle background gradient/particle effect */
+        body::before {
+            content: '';
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: radial-gradient(circle at top left, rgba(255, 193, 7, 0.05), transparent 30%), /* Amber glow */
+                        radial-gradient(circle at bottom right, rgba(135, 206, 235, 0.05), transparent 30%); /* Light sky blue glow */
+            z-index: -1;
+            pointer-events: none; /* Ensure no interaction with this layer */
+            animation: gradient-shift 10s ease infinite alternate;
+        }
+
+        @keyframes gradient-shift {
+            0% { background-position: 0% 0%; }
+            100% { background-position: 100% 100%; }
+        }
+
+        /* Hero section specific styles for gradients */
+        .hero-section {
+            background: linear-gradient(135deg, var(--lighthouse-deep-blue) 0%, #2A3F54 100%);
+        }
+
+        /* Glassmorphism effect */
+        .glass-panel {
+            background: rgba(255, 255, 255, 0.05);
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            box-shadow: 0 4px 30px rgba(0, 0, 0, 0.2);
+        }
+
+        /* Neon glow for text and buttons */
+        .neon-text {
+            text-shadow: 0 0 5px var(--lighthouse-amber), 0 0 10px var(--lighthouse-amber), 0 0 15px var(--lighthouse-amber), 0 0 20px var(--lighthouse-amber);
+        }
+
+        .neon-button {
+            position: relative;
+            z-index: 1;
+            transition: all 0.3s ease-in-out;
+            box-shadow: 0 0 8px rgba(255, 193, 7, 0.7); /* Amber shadow */
+            overflow: hidden; /* For pseudo-element effects */
+        }
+        .neon-button::before {
+            content: '';
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            width: 0;
+            height: 0;
+            background: rgba(255, 193, 7, 0.3); /* Amber hover glow */
+            border-radius: 50%;
+            transition: width 0.4s ease-out, height 0.4s ease-out, top 0.4s ease-out, left 0.4s ease-out;
+            transform: translate(-50%, -50%);
+            z-index: -1;
+            opacity: 0;
+        }
+        .neon-button:hover {
+            box-shadow: 0 0 15px var(--lighthouse-amber), 0 0 25px rgba(255, 193, 7, 0.8), 0 0 40px rgba(255, 193, 7, 0.5); /* Stronger Amber shadow */
+            transform: translateY(-3px) scale(1.02);
+        }
+        .neon-button:hover::before {
+            width: 200%;
+            height: 200%;
+            opacity: 1;
+        }
+
+        /* Subtle animations */
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(30px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        .animate-fade-in {
+            animation: fadeIn 1s ease-out forwards;
+        }
+        /* Staggered animation delays */
+        .delay-100 { animation-delay: 0.1s; }
+        .delay-200 { animation-delay: 0.2s; }
+        .delay-300 { animation-delay: 0.3s; }
+        .delay-400 { animation-delay: 0.4s; }
+        .delay-500 { animation-delay: 0.5s; }
+        .delay-600 { animation-delay: 0.6s; }
+        .delay-700 { animation-delay: 0.7s; }
+        .delay-800 { animation-delay: 0.8s; }
+
+        @keyframes pulse {
+            0%, 100% { transform: scale(1); opacity: 1; }
+            50% { transform: scale(1.03); opacity: 0.95; }
+        }
+        .animate-pulse-subtle {
+            animation: pulse 3s infinite ease-in-out;
+        }
+
+        /* Typing effect for AI output */
+        @keyframes typing {
+            from { width: 0 }
+            to { width: 100% }
+        }
+        @keyframes blink-caret {
+            from, to { border-color: transparent }
+            50% { border-color: var(--lighthouse-amber); } /* Amber caret */
+        }
+        .typewriter {
+            overflow: hidden; /* Ensures the text is hidden until typed */
+            white-space: nowrap; /* Keeps the content on a single line */
+            border-right: .15em solid var(--lighthouse-amber); /* The blinking caret */
+            animation:
+                typing 3s steps(40, end),
+                blink-caret .75s step-end infinite;
+        }
+
+        /* Custom scrollbar for a sleek look */
+        ::-webkit-scrollbar {
+            width: 8px;
+        }
+        ::-webkit-scrollbar-track {
+            background: #1a202c;
+        }
+        ::-webkit-scrollbar-thumb {
+            background: var(--lighthouse-amber); /* Amber */
+            border-radius: 4px;
+        }
+        ::-webkit-scrollbar-thumb:hover {
+            background: var(--lighthouse-orange);
+        }
+
+        /* Three.js canvas specific styling */
+        #three-canvas {
+            width: 100%;
+            height: 60vh; /* Adjust height as needed */
+            background-color: transparent; /* Make sure it's transparent to show background */
+            display: block;
+            touch-action: none; /* Prevent browser touch actions on canvas */
+            cursor: grab; /* Indicate it's draggable */
+        }
+        #three-canvas:active {
+            cursor: grabbing;
+        }
+
+        /* Back to top button */
+        #back-to-top {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            background-color: rgba(255, 193, 7, 0.7); /* Amber rgba */
+            color: var(--text-color); /* Text on button */
+            padding: 12px 15px;
+            border-radius: 50%;
+            font-size: 1.5rem;
+            display: none; /* Hidden by default */
+            z-index: 1000;
+            box-shadow: 0 0 10px rgba(255, 193, 7, 0.5); /* Amber shadow */
+            transition: all 0.3s ease;
+        }
+        #back-to-top:hover {
+            background-color: rgba(255, 193, 7, 0.9); /* Amber rgba darker */
+            transform: translateY(-3px);
+            box-shadow: 0 0 15px rgba(255, 193, 7, 0.8); /* Stronger Amber shadow */
+        }
+
+        /* Dynamic Header styles */
+        .header-scrolled {
+            background-color: rgba(26, 46, 64, 0.95); /* Deeper background for scroll */
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
+            transition: background-color 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        /* Modal for form submission message */
+        .modal {
+            position: fixed;
+            z-index: 1001;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            overflow: auto;
+            background-color: rgba(0,0,0,0.7);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            opacity: 0;
+            visibility: hidden;
+            transition: opacity 0.3s ease, visibility 0.3s ease;
+        }
+        .modal-show {
+            opacity: 1;
+            visibility: visible;
+        }
+        .modal-content {
+            background: #1a202c;
+            margin: auto;
+            padding: 40px;
+            border: 1px solid var(--lighthouse-amber); /* Amber border */
+            width: 80%;
+            max-width: 500px;
+            border-radius: 12px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.5);
+            text-align: center;
+            transform: translateY(-50px);
+            opacity: 0;
+            transition: transform 0.3s ease, opacity 0.3s ease;
+        }
+        .modal-show .modal-content {
+            transform: translateY(0);
+            opacity: 1;
+        }
+        .modal-close {
+            color: #aaa;
+            float: right;
+            font-size: 28px;
+            font-weight: bold;
+            cursor: pointer;
+            transition: color 0.2s ease;
+        }
+        .modal-close:hover,
+        .modal-close:focus {
+            color: var(--lighthouse-amber); /* Amber hover */
+            text-decoration: none;
+            cursor: pointer;
+        }
+
+        /* Styling for the LIGHTHOUSE logo with diamond */
+        .lighthouse-logo {
+            display: flex;
+            align-items: center;
+            line-height: 1; /* Adjust line height to align SVG and text */
+        }
+        .lighthouse-logo svg {
+            height: 1.8em; /* Scale SVG relative to font size */
+            width: auto;
+            margin-right: 0.5rem; /* Space between diamond and text */
+            filter: drop-shadow(0 0 5px var(--lighthouse-amber)) drop-shadow(0 0 10px var(--lighthouse-amber)); /* Add glow to SVG */
+        }
+
+        /* New styles for documentation sections */
+        .docs-section h3 {
+            border-bottom: 1px solid rgba(255, 193, 7, 0.3); /* Amber for sub-section dividers */
+            padding-bottom: 0.5rem;
+            margin-bottom: 1.5rem;
+            color: var(--lighthouse-light-sky); /* Highlight sub-section titles */
+        }
+        .docs-section ul li {
+            position: relative;
+            padding-left: 1.5rem;
+            margin-bottom: 0.75rem;
+        }
+        .docs-section ul li i.fas {
+            position: absolute;
+            left: 0;
+            top: 0.25rem;
+            color: var(--lighthouse-amber); /* Icons are amber */
+        }
+        .docs-table th {
+            border-bottom: 2px solid var(--lighthouse-amber); /* Stronger line for table headers */
+            font-weight: 600;
+        }
+        .docs-table td {
+            border-bottom: 1px solid rgba(255, 255, 255, 0.08); /* Lighter lines for table rows */
+        }
+    </style>
+</head>
+<body class="antialiased leading-relaxed text-gray-200">
+
+    <header id="main-header" class="fixed top-0 left-0 w-full z-50 p-4 bg-gradient-to-b from-gray-900/80 to-transparent">
+        <nav class="container mx-auto flex justify-between items-center">
+            <div class="text-2xl font-bold neon-text lighthouse-logo">
+                <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M12 1L2 7V17L12 23L22 17V7L12 1ZM12 3.33L19.86 7.82V16.18L12 20.67L4.14 16.18V7.82L12 3.33ZM12 8.5L8.5 12L12 15.5L15.5 12L12 8.5Z" fill="url(#lighthouseGradient)" stroke="var(--lighthouse-light-sky)" stroke-width="0.5"/>
+                    <defs>
+                        <linearGradient id="lighthouseGradient" x1="2" y1="1" x2="22" y2="23" gradientUnits="userSpaceOnUse">
+                            <stop stop-color="var(--lighthouse-amber)"/>
+                            <stop offset="1" stop-color="var(--lighthouse-orange)"/>
+                        </linearGradient>
+                    </defs>
+                </svg>
+                LIGHTHOUSE
+            </div>
+            <ul class="hidden md:flex space-x-6">
+                <li><a href="#home" class="hover:text-[--lighthouse-light-sky] transition-colors duration-300" tabindex="0">Home</a></li>
+                <li><a href="#overview" class="hover:text-[--lighthouse-light-sky] transition-colors duration-300" tabindex="0">Guidance System</a></li>
+                <li><a href="#deployment-map" class="hover:text-[--lighthouse-light-sky] transition-colors duration-300" tabindex="0">Navigation Map</a></li>
+                <li><a href="#use-cases" class="hover:text-[--lighthouse-light-sky] transition-colors duration-300" tabindex="0">Beacon Applications</a></li>
+                <li><a href="#tech-stack" class="hover:text-[--lighthouse-light-sky] transition-colors duration-300" tabindex="0">Infrastructure Stack</a></li>
+                <li><a href="#component-modules" class="hover:text-[--lighthouse-light-sky] transition-colors duration-300" tabindex="0">Beacon Modules</a></li>
+                <li><a href="#contact-form" class="hover:text-[--lighthouse-light-sky] transition-colors duration-300" tabindex="0">Connect</a></li>
+            </ul>
+            <button class="md:hidden text-[--lighthouse-light-sky] focus:outline-none" aria-label="Open mobile menu" tabindex="0">
+                <i class="fas fa-bars text-xl"></i>
+            </button>
+        </nav>
+    </header>
+
+    <div id="mobile-menu" class="fixed inset-0 bg-gray-900/95 z-40 hidden flex-col items-center justify-center space-y-8 text-xl">
+        <button class="absolute top-4 right-4 text-[--lighthouse-light-sky] focus:outline-none" aria-label="Close mobile menu" tabindex="0">
+            <i class="fas fa-times"></i>
+        </button>
+        <a href="#home" class="hover:text-[--lighthouse-light-sky] transition-colors duration-300" onclick="document.getElementById('mobile-menu').classList.add('hidden')" tabindex="0">Home</a>
+        <a href="#overview" class="hover:text-[--lighthouse-light-sky] transition-colors duration-300" onclick="document.getElementById('mobile-menu').classList.add('hidden')" tabindex="0">Guidance System</a>
+        <a href="#deployment-map" class="hover:text-[--lighthouse-light-sky] transition-colors duration-300" onclick="document.getElementById('mobile-menu').classList.add('hidden')" tabindex="0">Navigation Map</a>
+        <a href="#use-cases" class="hover:text-[--lighthouse-light-sky] transition-colors duration-300" onclick="document.getElementById('mobile-menu').classList.add('hidden')" tabindex="0">Beacon Applications</a>
+        <a href="#tech-stack" class="hover:text-[--lighthouse-light-sky] transition-colors duration-300" onclick="document.getElementById('mobile-menu').classList.add('hidden')" tabindex="0">Infrastructure Stack</a>
+        <a href="#component-modules" class="hover:text-[--lighthouse-light-sky] transition-colors duration-300" onclick="document.getElementById('mobile-menu').classList.add('hidden')" tabindex="0">Beacon Modules</a>
+        <a href="#contact-form" class="hover:text-[--lighthouse-light-sky] transition-colors duration-300" onclick="document.getElementById('mobile-menu').classList.add('hidden')" tabindex="0">Connect</a>
+    </div>
+
+    <main class="pt-16">
+        <section id="home" class="hero-section min-h-screen flex items-center justify-center text-center p-8 relative overflow-hidden">
+            <div class="relative z-10 max-w-4xl animate-fade-in">
+                <h1 class="text-5xl md:text-7xl font-extrabold mb-4 leading-tight neon-text animate-pulse-subtle delay-100">
+                    LIGHTHOUSE: Forging Foundational Intelligence Architectures
+                </h1>
+                <p class="text-lg md:text-xl mb-8 text-gray-300 delay-200">
+                    A pivotal infrastructure for secure, expansive connectivity and seamless integration across complex systems, guiding the future of digital ecosystems.
+                </p>
+                <a href="#overview" class="neon-button inline-block bg-[--lighthouse-orange] hover:bg-[--lighthouse-deep-blue] text-white font-bold py-3 px-8 rounded-full shadow-lg transition-all duration-300 transform hover:scale-105 delay-300" tabindex="0">
+                    Explore The Guidance System <i class="fas fa-arrow-right ml-2"></i>
+                </a>
+            </div>
+            <div class="absolute inset-0 z-0 opacity-10">
+                <div class="absolute w-64 h-64 rounded-full bg-[--lighthouse-amber] blur-3xl opacity-50 top-1/4 left-1/4 animate-pulse"></div>
+                <div class="absolute w-96 h-96 rounded-full bg-[--lighthouse-light-sky] blur-3xl opacity-50 bottom-1/4 right-1/4 animate-pulse animation-delay-2000"></div>
+            </div>
+        </section>
+
+        <section id="overview" class="py-20 px-4 md:px-8 bg-[--lighthouse-deep-blue] section-fade-in docs-section">
+            <div class="container mx-auto max-w-4xl text-center">
+                <h2 class="text-4xl font-bold mb-8 neon-text delay-100">LIGHTHOUSE Guidance System Overview</h2>
+                <p class="text-gray-300 mb-12 text-lg leading-relaxed delay-200">
+                    LIGHTHOUSE operates across three interconnected layers to establish resilient foundational intelligence.
+                </p>
+
+                <div class="glass-panel p-8 rounded-xl shadow-lg hover:shadow-2xl transition-all duration-300 transform hover:translate-y-[-5px] mb-10 delay-300">
+                    <h3 class="text-2xl font-semibold mb-3 text-[--lighthouse-amber]">Intelligence Layer <span class="text-lg text-gray-400">(Powered by Nexus Core)</span></h3>
+                    <ul class="list-none space-y-3 text-left max-w-lg mx-auto">
+                        <li><i class="fas fa-brain"></i><strong>Adaptive Reasoning Engines:</strong> Processes complex data streams for predictive insights.</li>
+                        <li><i class="fas fa-map-marked-alt"></i><strong>Contextual Awareness Modules:</strong> Real-time environmental and operational context integration.</li>
+                        <li><i class="fas fa-handshake"></i><strong>Trust & Validation Frameworks:</strong> Cryptographically secure validation of data and interactions.</li>
+                    </ul>
+                </div>
+
+                <div class="glass-panel p-8 rounded-xl shadow-lg hover:shadow-2xl transition-all duration-300 transform hover:translate-y-[-5px] mb-10 delay-400">
+                    <h3 class="text-2xl font-semibold mb-3 text-[--lighthouse-orange]">Infrastructure Layer</h3>
+                    <ul class="list-none space-y-3 text-left max-w-lg mx-auto">
+                        <li><i class="fas fa-network-wired"></i><strong>Decentralized Mesh Networking:</strong> Ensures robust, resilient data exchange.</li>
+                        <li><i class="fas fa-cloud-upload-alt"></i><strong>Secure Data Relays:</strong> Encrypted, high-throughput channels for critical information.</li>
+                        <li><i class="fas fa-database"></i><strong>Immutable Ledger Integration:</strong> For transparent and verifiable transaction logging.</li>
+                    </ul>
+                </div>
+
+                <div class="glass-panel p-8 rounded-xl shadow-lg hover:shadow-2xl transition-all duration-300 transform hover:translate-y-[-5px] delay-500">
+                    <h3 class="text-2xl font-semibold mb-3 text-[--lighthouse-light-sky]">Interface Layer</h3>
+                    <ul class="list-none space-y-3 text-left max-w-lg mx-auto">
+                        <li><i class="fas fa-cubes"></i><strong>Modular Dashboard Components:</strong> Customizable views for diverse operational needs.</li>
+                        <li><i class="fas fa-chart-area"></i><strong>Real-time Visualization Engines:</strong> Intuitive displays of complex system states.</li>
+                        <li><i class="fas fa-terminal"></i><strong>Cross-System API Connectivity:</strong> Seamless integration with existing and emerging platforms.</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+        <section id="deployment-map" class="py-20 px-4 md:px-8 bg-gray-950 section-fade-in docs-section">
+            <div class="container mx-auto max-w-5xl text-center">
+                <h2 class="text-4xl font-bold mb-12 neon-text delay-100">LIGHTHOUSE Navigation Map (Phased Rollout)</h2>
+                <div class="overflow-x-auto glass-panel rounded-xl shadow-lg delay-200">
+                    <table class="w-full text-left docs-table">
+                        <thead class="bg-gray-800 text-[--lighthouse-light-sky] uppercase">
+                            <tr>
+                                <th class="py-3 px-4 rounded-tl-lg">Phase</th>
+                                <th class="py-3 px-4">Objective</th>
+                                <th class="py-3 px-4">Key Milestones</th>
+                                <th class="py-3 px-4 rounded-tr-lg">Collaborators</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr class="border-b border-gray-700 hover:bg-gray-800 transition-colors duration-200">
+                                <td class="py-3 px-4 font-semibold text-[--lighthouse-amber]">1. Foundation Weave</td>
+                                <td class="py-3 px-4 text-gray-300">Core architecture & secure protocols</td>
+                                <td class="py-3 px-4 text-gray-300">Decentralized network alpha, basic trust layer</td>
+                                <td class="py-3 px-4 text-gray-300">Research institutions, security firms</td>
+                            </tr>
+                            <tr class="border-b border-gray-700 hover:bg-gray-800 transition-colors duration-200">
+                                <td class="py-3 px-4 font-semibold text-[--lighthouse-orange]">2. Nexus Integration</td>
+                                <td class="py-3 px-4 text-gray-300">Cross-system data flow & API hooks</td>
+                                <td class="py-3 px-4 text-gray-300">Integrate with 50+ enterprise systems, real-time data relay</td>
+                                <td class="py-3 px-4 text-gray-300">Tech conglomerates, data centers</td>
+                            </tr>
+                            <tr class="border-b border-gray-700 hover:bg-gray-800 transition-colors duration-200">
+                                <td class="py-3 px-4 font-semibold text-[--lighthouse-light-grey]">3. Intelligence Beacon</td>
+                                <td class="py-3 px-4 text-gray-300">Deploy adaptive reasoning engines</td>
+                                <td class="py-3 px-4 text-gray-300">Launch predictive analytics for key sectors, contextual insights</td>
+                                <td class="py-3 px-4 text-gray-300">AI/ML partners, industry specialists</td>
+                            </tr>
+                            <tr class="border-b border-gray-700 hover:bg-gray-800 transition-colors duration-200">
+                                <td class="py-3 px-4 font-semibold text-[--lighthouse-light-sky]">4. Global Illumination</td>
+                                <td class="py-3 px-4 text-gray-300">Expansive connectivity at scale</td>
+                                <td class="py-3 px-4 text-gray-300">Onboard 20M connections across diverse networks, adaptive resilience</td>
+                                <td class="py-3 px-4 text-gray-300">Telecommunication providers, global enterprises</td>
+                            </tr>
+                            <tr class="hover:bg-gray-800 transition-colors duration-200">
+                                <td class="py-3 px-4 font-semibold text-[--lighthouse-steel-gray] rounded-bl-lg">5. Symbiotic Autonomy</td>
+                                <td class="py-3 px-4 text-gray-300">Self-optimizing, self-healing networks</td>
+                                <td class="py-3 px-4 text-gray-300">Full decentralized operation, autonomous threat response, continuous evolution</td>
+                                <td class="py-3 px-4 text-gray-300 rounded-br-lg">Defense organizations, critical infrastructure</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </section>
+
+        <section id="use-cases" class="py-20 px-4 md:px-8 bg-[--lighthouse-deep-blue] section-fade-in docs-section">
+            <div class="container mx-auto max-w-4xl text-center">
+                <h2 class="text-4xl font-bold mb-12 neon-text delay-100">LIGHTHOUSE Beacon Applications</h2>
+                <div class="grid md:grid-cols-2 gap-10">
+                    <div class="glass-panel p-8 rounded-xl shadow-lg hover:shadow-2xl transition-all duration-300 transform hover:translate-y-[-5px] delay-200">
+                        <h3 class="text-2xl font-semibold mb-3 text-[--lighthouse-amber]"><i class="fas fa-shield-alt mr-2"></i>Cyber-Physical Security</h3>
+                        <ul class="list-none space-y-2 text-left text-gray-300">
+                            <li><i class="fas fa-check-circle"></i>Real-time threat detection and autonomous remediation in connected systems.</li>
+                            <li><i class="fas fa-check-circle"></i>Secure identity and access management for industrial IoT.</li>
+                        </ul>
+                    </div>
+                    <div class="glass-panel p-8 rounded-xl shadow-lg hover:shadow-2xl transition-all duration-300 transform hover:translate-y-[-5px] delay-300">
+                        <h3 class="text-2xl font-semibold mb-3 text-[--lighthouse-orange]"><i class="fas fa-robot mr-2"></i>Autonomous Systems Navigation</h3>
+                        <ul class="list-none space-y-2 text-left text-gray-300">
+                            <li><i class="fas fa-check-circle"></i>Providing reliable contextual data for self-driving vehicles and drones.</li>
+                            <li><i class="fas fa-check-circle"></i>Orchestrating complex multi-agent system operations with guaranteed trust.</li>
+                        </ul>
+                    </div>
+                    <div class="glass-panel p-8 rounded-xl shadow-lg hover:shadow-2xl transition-all duration-300 transform hover:translate-y-[-5px] delay-400">
+                        <h3 class="text-2xl font-semibold mb-3 text-[--lighthouse-light-sky]"><i class="fas fa-globe-americas mr-2"></i>Global Data Interoperability</h3>
+                        <ul class="list-none space-y-2 text-left text-gray-300">
+                            <li><i class="fas fa-check-circle"></i>Enabling seamless, secure data exchange between disparate global platforms.</li>
+                            <li><i class="fas fa-check-circle"></i>Establishing universal standards for trusted information flow.</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="tech-stack" class="py-20 px-4 md:px-8 bg-gray-950 section-fade-in docs-section">
+            <div class="container mx-auto max-w-4xl text-center">
+                <h2 class="text-4xl font-bold mb-12 neon-text delay-100">Infrastructure Stack</h2>
+                <div class="overflow-x-auto glass-panel rounded-xl shadow-lg delay-200">
+                    <table class="w-full text-left docs-table">
+                        <thead class="bg-gray-800 text-[--lighthouse-light-sky] uppercase">
+                            <tr>
+                                <th class="py-3 px-4 rounded-tl-lg">Layer</th>
+                                <th class="py-3 px-4 rounded-tr-lg">Tools/Frameworks</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr class="border-b border-gray-700 hover:bg-gray-800 transition-colors duration-200">
+                                <td class="py-3 px-4 font-semibold text-[--lighthouse-amber]">Intelligence Core</td>
+                                <td class="py-3 px-4 text-gray-300">Nexus Core AI, Real-time Graph Databases, Bayesian Networks</td>
+                            </tr>
+                            <tr class="border-b border-gray-700 hover:bg-gray-800 transition-colors duration-200">
+                                <td class="py-3 px-4 font-semibold text-[--lighthouse-orange]">Connectivity Fabric</td>
+                                <td class="py-3 px-4 text-gray-300">Multi-protocol Mesh (IPFS, LibP2P), Zero-Trust Architecture</td>
+                            </tr>
+                            <tr class="border-b border-gray-700 hover:bg-gray-800 transition-colors duration-200">
+                                <td class="py-3 px-4 font-semibold text-[--lighthouse-light-grey]">Data Integrity</td>
+                                <td class="py-3 px-4 text-gray-300">Quantum-Resistant Blockchain, Distributed Ledger Technologies (DLT)</td>
+                            </tr>
+                            <tr class="border-b border-gray-700 hover:bg-gray-800 transition-colors duration-200">
+                                <td class="py-3 px-4 font-semibold text-[--lighthouse-light-sky]">Deployment</td>
+                                <td class="py-3 px-4 text-gray-300">Edge Computing Platforms, Kubernetes, Serverless Functions</td>
+                            </tr>
+                            <tr class="hover:bg-gray-800 transition-colors duration-200">
+                                <td class="py-3 px-4 font-semibold text-[--lighthouse-steel-gray] rounded-bl-lg">Security & Privacy</td>
+                                <td class="py-3 px-4 text-gray-300 rounded-br-lg">Homomorphic Encryption, Multi-Party Computation, HSMs</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </section>
+
+        <section id="component-modules" class="py-20 px-4 md:px-8 bg-[--lighthouse-deep-blue] section-fade-in docs-section">
+            <div class="container mx-auto max-w-4xl text-center">
+                <h2 class="text-4xl font-bold mb-12 neon-text delay-100">LIGHTHOUSE Beacon Modules</h2>
+                <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-10">
+                    <div class="glass-panel p-8 rounded-xl shadow-lg hover:shadow-2xl transition-all duration-300 transform hover:translate-y-[-5px] delay-200">
+                        <h3 class="text-2xl font-semibold mb-3 text-[--lighthouse-amber]"><i class="fas fa-broadcast-tower mr-2"></i>Beacon Core</h3>
+                        <p class="text-gray-300 leading-relaxed">Centralized intelligence and routing.</p>
+                    </div>
+                    <div class="glass-panel p-8 rounded-xl shadow-lg hover:shadow-2xl transition-all duration-300 transform hover:translate-y-[-5px] delay-300">
+                        <h3 class="text-2xl font-semibold mb-3 text-[--lighthouse-orange]"><i class="fas fa-fingerprint mr-2"></i>TrustNet</h3>
+                        <p class="text-gray-300 leading-relaxed">Verifiable identity and secure authentication.</p>
+                    </div>
+                    <div class="glass-panel p-8 rounded-xl shadow-lg hover:shadow-2xl transition-all duration-300 transform hover:translate-y-[-5px] delay-400">
+                        <h3 class="text-2xl font-semibold mb-3 text-[--lighthouse-light-sky]"><i class="fas fa-dna mr-2"></i>DataSynth</h3>
+                        <p class="text-gray-300 leading-relaxed">Synthesized data streams for enhanced context.</p>
+                    </div>
+                    <div class="glass-panel p-8 rounded-xl shadow-lg hover:shadow-2xl transition-all duration-300 transform hover:translate-y-[-5px] delay-500">
+                        <h3 class="text-2xl font-semibold mb-3 text-[--lighthouse-light-grey]"><i class="fas fa-microchip mr-2"></i>EdgeRelay</h3>
+                        <p class="text-gray-300 leading-relaxed">Localized processing and robust edge connectivity.</p>
+                    </div>
+                    <div class="glass-panel p-8 rounded-xl shadow-lg hover:shadow-2xl transition-all duration-300 transform hover:translate-y-[-5px] delay-600">
+                        <h3 class="text-2xl font-semibold mb-3 text-[--lighthouse-steel-gray]"><i class="fas fa-sitemap mr-2"></i>MeshLink</h3>
+                        <p class="text-gray-300 leading-relaxed">Decentralized network weaving for expansive reach.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="three-d-experience" class="py-20 px-4 md:px-8 bg-gray-950 section-fade-in">
+            <div class="container mx-auto text-center">
+                <h2 class="text-4xl font-bold mb-8 neon-text delay-100">Interactive Beacon Visualization</h2>
+                <p class="text-lg text-gray-300 mb-10 max-w-2xl mx-auto delay-200">
+                    Experience an interactive 3D visualization of a LIGHTHOUSE beacon. Drag to rotate the object and visualize the guiding light of foundational intelligence.
+                </p>
+                <div class="glass-panel p-2 rounded-xl shadow-lg relative aspect-video delay-300" style="height: 60vh;">
+                    <canvas id="three-canvas" class="rounded-lg"></canvas>
+                    <div class="absolute bottom-4 left-0 right-0 text-center text-gray-400 text-sm">
+                        Drag your mouse across the canvas to rotate the 3D object.
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="contact-form" class="py-20 px-4 md:px-8 bg-[--lighthouse-deep-blue] section-fade-in">
+            <div class="container mx-auto max-w-2xl">
+                <h2 class="text-4xl font-bold text-center mb-12 neon-text delay-100">Connect with LIGHTHOUSE</h2>
+                <div class="glass-panel p-8 rounded-xl shadow-lg delay-200">
+                    <p class="text-gray-300 mb-6 text-center">
+                        Join us in illuminating the path forward for foundational intelligence architectures. We welcome your inquiries, collaborations, and insights.
+                    </p>
+                    <form id="contactForm" class="space-y-6">
+                        <div>
+                            <label for="name" class="block text-lg font-medium text-[--lighthouse-light-grey] mb-2">Name:</label>
+                            <input type="text" id="name" name="name" required class="w-full p-4 rounded-lg bg-gray-800 border border-gray-700 text-gray-100 focus:ring-[--lighthouse-amber] focus:border-[--lighthouse-amber] outline-none transition-all duration-200" aria-label="Your Name" tabindex="0">
+                        </div>
+                        <div>
+                            <label for="email" class="block text-lg font-medium text-[--lighthouse-light-grey] mb-2">Email:</label>
+                            <input type="email" id="email" name="email" required class="w-full p-4 rounded-lg bg-gray-800 border border-gray-700 text-gray-100 focus:ring-[--lighthouse-amber] focus:border-[--lighthouse-amber] outline-none transition-all duration-200" aria-label="Your Email" tabindex="0">
+                        </div>
+                        <div>
+                            <label for="subject" class="block text-lg font-medium text-[--lighthouse-light-grey] mb-2">Subject:</label>
+                            <input type="text" id="subject" name="subject" required class="w-full p-4 rounded-lg bg-gray-800 border border-gray-700 text-gray-100 focus:ring-[--lighthouse-amber] focus:border-[--lighthouse-amber] outline-none transition-all duration-200" aria-label="Subject of your message" tabindex="0">
+                        </div>
+                        <div>
+                            <label for="message" class="block text-lg font-medium text-[--lighthouse-light-grey] mb-2">Message:</label>
+                            <textarea id="message" name="message" rows="5" required class="w-full p-4 rounded-lg bg-gray-800 border border-gray-700 text-gray-100 focus:ring-[--lighthouse-amber] focus:border-[--lighthouse-amber] outline-none transition-all duration-200" aria-label="Your Message" tabindex="0"></textarea>
+                        </div>
+                        <button type="submit" class="neon-button w-full bg-[--lighthouse-orange] hover:bg-[--lighthouse-deep-blue] text-white font-bold py-3 px-6 rounded-lg shadow-md transition-all duration-300" aria-label="Send Message" tabindex="0">
+                            Send Message <i class="fas fa-paper-plane ml-2"></i>
+                        </button>
+                    </form>
+                </div>
+            </div>
+        </section>
+
+        <footer id="footer" class="bg-black py-12 px-4 md:px-8 border-t border-gray-800 section-fade-in">
+            <div class="container mx-auto flex flex-col md:flex-row justify-between items-center text-center md:text-left">
+                <div class="mb-6 md:mb-0 delay-100">
+                    <h3 class="text-2xl font-bold neon-text mb-2">LIGHTHOUSE</h3>
+                    <p class="text-gray-400">&copy; 2026 Coreweaver Labs. All Rights Reserved.</p>
+                </div>
+                <div class="mb-6 md:mb-0 delay-200">
+                    <h4 class="text-xl font-semibold text-[--lighthouse-light-grey] mb-3">Connect With Us</h4>
+                    <div class="flex justify-center md:justify-start space-x-6">
+                        <a href="#" class="text-gray-400 hover:text-[--lighthouse-light-sky] transition-colors duration-300" aria-label="Follow LIGHTHOUSE on X (formerly Twitter)" tabindex="0"><i class="fab fa-twitter text-2xl"></i></a>
+                        <a href="#" class="text-gray-400 hover:text-[--lighthouse-light-sky] transition-colors duration-300" aria-label="Join LIGHTHOUSE Discord Community" tabindex="0"><i class="fab fa-discord text-2xl"></i></a>
+                        <a href="#" class="text-gray-400 hover:text-[--lighthouse-light-sky] transition-colors duration-300" aria-label="Email LIGHTHOUSE" tabindex="0"><i class="fas fa-envelope text-2xl"></i></a>
+                    </div>
+                </div>
+                <div class="delay-300">
+                    <h4 class="text-xl font-semibold text-[--lighthouse-light-grey] mb-3">Legal</h4>
+                    <ul>
+                        <li><a href="#" class="text-gray-400 hover:text-[--lighthouse-light-sky] transition-colors duration-300" tabindex="0">Privacy Policy</a></li>
+                        <li><a href="#" class="text-400 hover:text-[--lighthouse-light-sky] transition-colors duration-300" tabindex="0">Terms of Service</a></li>
+                    </ul>
+                </div>
+            </div>
+        </footer>
+    </main>
+
+    <button id="back-to-top" title="Back to top" aria-label="Back to top" tabindex="0">
+        <i class="fas fa-arrow-up"></i>
+    </button>
+
+    <div id="successModal" class="modal">
+        <div class="modal-content glass-panel">
+            <span class="modal-close">&times;</span>
+            <i class="fas fa-check-circle text-5xl text-[--lighthouse-amber] mb-4"></i>
+            <h3 class="text-2xl font-bold text-white mb-2">Message Sent!</h3>
+            <p class="text-gray-300">Thank you for reaching out. We will guide you soon.</p>
+        </div>
+    </div>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+    <script>
+        // --- Mobile Menu Toggle ---
+        const mobileMenuButton = document.querySelector('header button[aria-label="Open mobile menu"]');
+        const mobileMenu = document.getElementById('mobile-menu');
+        const closeMobileMenuButton = mobileMenu.querySelector('button[aria-label="Close mobile menu"]');
+
+        mobileMenuButton.addEventListener('click', () => {
+            mobileMenu.classList.remove('hidden');
+            mobileMenu.classList.add('flex');
+        });
+
+        closeMobileMenuButton.addEventListener('click', () => {
+            mobileMenu.classList.add('hidden');
+            mobileMenu.classList.remove('flex');
+        });
+
+        // --- Smooth Scrolling for Navigation ---
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const targetElement = document.querySelector(this.getAttribute('href'));
+                if (targetElement) {
+                     targetElement.scrollIntoView({
+                        behavior: 'smooth'
+                    });
+                }
+                // Close mobile menu on link click
+                if (!mobileMenu.classList.contains('hidden')) {
+                    mobileMenu.classList.add('hidden');
+                    mobileMenu.classList.remove('flex');
+                }
+            });
+        });
+
+        // --- Dynamic Header on Scroll ---
+        const mainHeader = document.getElementById('main-header');
+        const backToTopButton = document.getElementById('back-to-top');
+
+        window.addEventListener('scroll', () => {
+            if (window.scrollY > 50) { // Add class after scrolling down 50px
+                mainHeader.classList.add('header-scrolled');
+                backToTopButton.style.display = 'block';
+            } else {
+                mainHeader.classList.remove('header-scrolled');
+                backToTopButton.style.display = 'none';
+            }
+        });
+
+        backToTopButton.addEventListener('click', () => {
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        });
+
+
+        // --- Section Fade-in Animation on Scroll ---
+        const faders = document.querySelectorAll('.section-fade-in');
+        const appearOptions = {
+            threshold: 0.1, // When 10% of the section is visible
+            rootMargin: "0px 0px -50px 0px" // Start animating slightly before it's fully in view
+        };
+
+        const appearOnScroll = new IntersectionObserver(function(entries, appearOnScroll) {
+            entries.forEach(entry => {
+                if (!entry.isIntersecting) {
+                    return;
+                } else {
+                    entry.target.classList.add('animate-fade-in');
+                    // Animate children with delay classes
+                    entry.target.querySelectorAll('.delay-100, .delay-200, .delay-300, .delay-400, .delay-500, .delay-600, .delay-700, .delay-800').forEach(el => {
+                        el.classList.add('animate-fade-in');
+                    });
+                    appearOnScroll.unobserve(entry.target); // Stop observing once animated
+                }
+            });
+        }, appearOptions);
+
+        faders.forEach(fader => {
+            appearOnScroll.observe(fader);
+        });
+
+        // --- Consolidate all window.onload dependent scripts into one ---
+        // This ensures all elements are loaded before scripts try to access them
+        window.onload = function() {
+            // --- Three.js 3D Experience Setup ---
+            const canvas = document.getElementById('three-canvas');
+            const scene = new THREE.Scene();
+            const camera = new THREE.PerspectiveCamera(75, canvas.clientWidth / canvas.clientHeight, 0.1, 1000);
+            const renderer = new THREE.WebGLRenderer({ canvas: canvas, antialias: true, alpha: true });
+            renderer.setPixelRatio(window.devicePixelRatio);
+            renderer.setSize(canvas.clientWidth, canvas.clientHeight);
+
+            // Add subtle grid helper for futuristic feel
+            const gridHelper = new THREE.GridHelper(10, 10, 0xFFC107, 0xFF9800); /* Amber/Orange grid */
+            scene.add(gridHelper);
+            gridHelper.position.y = -2; // Position it below the object
+            gridHelper.material.opacity = 0.3;
+            gridHelper.material.transparent = true;
+
+            // Add some lighting
+            const ambientLight = new THREE.AmbientLight(0x404040, 0.6); // Softer ambient light
+            scene.add(ambientLight);
+
+            // Lighthouse Light (Point Light for the beam)
+            const lighthouseLight = new THREE.PointLight(0xFFC107, 1.5, 50); /* Amber Point Light */
+            lighthouseLight.position.set(0, 2.5, 0); // Positioned at the top of the lighthouse
+            scene.add(lighthouseLight);
+
+            // Directional Light for overall scene
+            const directionalLight = new THREE.DirectionionalLight(0x87CEEB, 0.8); /* Light sky blue directional light */
+            directionalLight.position.set(2, 5, 3).normalize();
+            scene.add(directionalLight);
+
+
+            // Create a simple lighthouse beacon model
+            // Base cylinder (tower)
+            const towerGeometry = new THREE.CylinderGeometry(0.8, 1.2, 3, 32); // top radius, bottom radius, height, segments
+            const towerMaterial = new THREE.MeshPhongMaterial({
+                color: 0xCBD5E1, /* Lighthouse light grey */
+                specular: 0xAAAAAA,
+                shininess: 50,
+            });
+            const tower = new THREE.Mesh(towerGeometry, towerMaterial);
+            scene.add(tower);
+            tower.position.y = -0.5; // Center it
+
+            // Top part (light housing)
+            const housingGeometry = new THREE.CylinderGeometry(0.5, 0.6, 1, 32);
+            const housingMaterial = new THREE.MeshPhongMaterial({
+                color: 0x4A6073, /* Steel gray */
+                emissive: 0x2A3F54, /* Subtle deep blue emissive */
+                specular: 0x666666,
+                shininess: 80,
+                transparent: true,
+                opacity: 0.9,
+            });
+            const housing = new THREE.Mesh(housingGeometry, housingMaterial);
+            tower.add(housing); // Add housing as a child of the tower
+            housing.position.y = 2; // Position on top of the tower
+
+            // Glass/Light element inside housing (emissive material)
+            const lightElementGeometry = new THREE.SphereGeometry(0.4, 16, 16); // Small sphere or cylinder
+            const lightElementMaterial = new THREE.MeshBasicMaterial({
+                color: 0xFFC107, /* Amber */
+                emissive: 0xFFC107,
+                emissiveIntensity: 1.5, // Make it glow
+                transparent: true,
+                opacity: 0.8
+            });
+            const lightElement = new THREE.Mesh(lightElementGeometry, lightElementMaterial);
+            housing.add(lightElement);
+            lightElement.position.y = 0.2; // Inside the housing
+
+            // Adjust the light source to match the lightElement
+            lighthouseLight.position.copy(lightElement.getWorldPosition(new THREE.Vector3()));
+
+
+            camera.position.z = 5;
+
+            // Animation loop
+            const animate = () => {
+                requestAnimationFrame(animate);
+                // Rotate the entire lighthouse group
+                tower.rotation.y += 0.005; // Rotate around Y axis for light sweep effect
+                renderer.render(scene, camera);
+            };
+
+            // Handle window resize (debounced for performance)
+            let resizeTimeout;
+            const onWindowResize = () => {
+                clearTimeout(resizeTimeout);
+                resizeTimeout = setTimeout(() => {
+                    camera.aspect = canvas.clientWidth / canvas.clientHeight;
+                    camera.updateProjectionMatrix();
+                    renderer.setSize(canvas.clientWidth, canvas.clientHeight);
+                }, 100); // Debounce by 100ms
+            };
+            window.addEventListener('resize', onWindowResize);
+
+            // Mouse interaction for rotating the object (now rotates the tower)
+            let isDragging = false;
+            let previousMousePosition = { x: 0, y: 0 };
+
+            canvas.addEventListener('mousedown', (e) => {
+                isDragging = true;
+                previousMousePosition = { x: e.clientX, y: e.clientY };
+            });
+
+            canvas.addEventListener('mouseup', () => {
+                isDragging = false;
+            });
+
+            canvas.addEventListener('mousemove', (e) => {
+                if (!isDragging) return;
+                const deltaX = e.clientX - previousMousePosition.x;
+                const deltaY = e.clientY - previousMousePosition.y;
+
+                tower.rotation.y += deltaX * 0.005;
+                tower.rotation.x += deltaY * 0.005;
+
+                previousMousePosition = { x: e.clientX, y: e.clientY };
+            });
+
+            // Touch interaction for rotating the object (now rotates the tower)
+            canvas.addEventListener('touchstart', (e) => {
+                isDragging = true;
+                previousMousePosition = { x: e.touches[0].clientX, y: e.touches[0].clientY };
+            });
+
+            canvas.addEventListener('touchend', () => {
+                isDragging = false;
+            });
+
+            canvas.addEventListener('touchmove', (e) => {
+                if (!isDragging) return;
+                e.preventDefault(); // Prevent scrolling
+                const deltaX = e.touches[0].clientX - previousMousePosition.x;
+                const deltaY = e.touches[0].clientY - previousMousePosition.y;
+
+                tower.rotation.y += deltaX * 0.005;
+                tower.rotation.x += deltaY * 0.005;
+
+                previousMousePosition = { x: e.touches[0].clientX, y: e.touches[0].clientY };
+            });
+
+            animate(); // Start the animation loop
+            onWindowResize(); // Initial resize call to set dimensions
+
+
+            // --- AI Lab - Gemini API Integration ---
+            const aiPromptInput = document.getElementById('ai-prompt');
+            const generateButton = document.getElementById('generate-ai-response');
+            const aiOutput = document.getElementById('ai-output');
+            const aiLoading = document.getElementById('ai-loading');
+
+            // Function to simulate typing effect
+            const typeMessage = (element, message, delay = 50) => {
+                element.textContent = '';
+                let i = 0;
+                element.classList.add('typewriter'); // Add typewriter class for blinking caret
+                const interval = setInterval(() => {
+                    if (i < message.length) {
+                        element.textContent += message.charAt(i);
+                        i++;
+                    } else {
+                        clearInterval(interval);
+                        element.classList.remove('typewriter'); // Remove typewriter class after typing
+                    }
+                }, delay);
+            };
+
+            if (generateButton) { // Added check for element existence
+                generateButton.addEventListener('click', async () => {
+                    const prompt = aiPromptInput.value.trim();
+                    if (!prompt) {
+                        typeMessage(aiOutput, "Error: Please enter a query for the AI to process.");
+                        return;
+                    }
+
+                    aiOutput.textContent = ""; // Clear previous output
+                    aiLoading.classList.remove('hidden'); // Show loading spinner
+                    generateButton.disabled = true; // Disable button during generation
+
+                    try {
+                        // Updated AI persona for LIGHTHOUSE documentation focus
+                        const userPrompt = `You are LIGHTHOUSE Beacon AI, an advanced intelligence designed to assist users with information about the LIGHTHOUSE foundational intelligence architecture. Your responses should be concise, factual, and help users understand how LIGHTHOUSE illuminates and connects complex systems. Answer the user's query: "${prompt}"`;
+
+                        let chatHistory = [];
+                        chatHistory.push({ role: "user", parts: [{ text: userPrompt }] });
+
+                        const payload = {
+                            contents: chatHistory,
+                        };
+
+                        const apiKey = ""; // Canvas runtime provides this automatically
+                        const apiUrl = `https://generativelanguage.googleapis.com/v1beta/models/gemini-2.0-flash:generateContent?key=${apiKey}`;
+
+                        const response = await fetch(apiUrl, {
+                            method: 'POST',
+                            headers: { 'Content-Type': 'application/json' },
+                            body: JSON.stringify(payload)
+                        });
+
+                        const result = await response.json();
+
+                        if (result.candidates && result.candidates.length > 0 &&
+                            result.candidates[0].content && result.candidates[0].content.parts &&
+                            result.candidates[0].content.parts.length > 0) {
+                            const text = result.candidates[0].content.parts[0].text;
+                            typeMessage(aiOutput, text); // Use typing effect
+                        } else {
+                            typeMessage(aiOutput, "Error: Could not get a meaningful response from the AI. The signal is unstable.");
+                            console.error("Gemini API response structure unexpected:", result);
+                        }
+                    } catch (error) {
+                        typeMessage(aiOutput, "Connection Error: Failed to reach LIGHTHOUSE Beacon AI. Please check your network or try again later. The guidance awaits...");
+                        console.error("Fetch error:", error);
+                    } finally {
+                        aiLoading.classList.add('hidden'); // Hide loading spinner
+                        generateButton.disabled = false; // Re-enable button
+                    }
+                });
+            }
+
+
+            // --- Contact Form Submission Logic ---
+            const contactForm = document.getElementById('contactForm');
+            const successModal = document.getElementById('successModal');
+            const closeModalButton = document.querySelector('.modal-close');
+
+            if (contactForm) { // Added check for element existence
+                contactForm.addEventListener('submit', function(e) {
+                    e.preventDefault(); // Prevent actual form submission
+
+                    // In a real application, you would send this form data to a backend server.
+                    // For this demonstration, we just show a success message.
+                    console.log("Form submitted (client-side simulation):");
+                    const formData = new FormData(contactForm);
+                    for (let [key, value] of formData.entries()) {
+                        console.log(`${key}: ${value}`);
+                    }
+
+                    // Show the success modal
+                    if (successModal) {
+                        successModal.classList.add('modal-show');
+                    }
+
+                    // Optionally, clear the form fields after submission
+                    contactForm.reset();
+                });
+            }
+
+            if (closeModalButton) { // Added check for element existence
+                closeModalButton.addEventListener('click', () => {
+                    if (successModal) {
+                        successModal.classList.remove('modal-show');
+                    }
+                });
+            }
+
+
+            // Close modal if user clicks outside of it
+            window.addEventListener('click', (e) => {
+                if (e.target === successModal) { // successModal might be null if not found
+                    if (successModal) { // Add a check here too
+                        successModal.classList.remove('modal-show');
+                    }
+                }
+            });
+        };
+
+        // --- Production Optimization Notes ---
+        // For a production environment, consider:
+        // 1. Minifying and bundling CSS/JS files to reduce network requests and file sizes.
+        // 2. Moving inline styles to a dedicated CSS file.
+        // 3. Breaking down larger JavaScript into separate modules (e.g., contact_form.js)
+        //    and using a build tool like Webpack or Rollup for better organization and optimization.
+        // 4. Using a tailwind.config.js file for custom Tailwind configurations instead of direct CSS variables.
+        // 5. Implementing robust server-side validation and submission for the contact form.
+    </script>
+</body>
+</html>
